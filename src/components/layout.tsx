@@ -102,32 +102,30 @@ export default function Layout({
                             </div>
                           </div>
 
-                          {status == "Connected" ? (
-                            <div
-                              onClick={() => {
-                                connect();
+                          <div
+                            onClick={() => {
+                              connect();
+                            }}
+                          >
+                            <Link
+                              href={""}
+                              style={{
+                                backgroundImage:
+                                  "linear-gradient(120deg, rgba(66,31,52,1) 0%, rgba(66,31,52,1) 100%)",
                               }}
+                              className="bg-yellow-500 text-white rounded-md px-3 py-2 text-sm font-medium"
                             >
-                              <Link
-                                href={""}
-                                style={{
-                                  backgroundImage:
-                                    "linear-gradient(120deg, rgba(66,31,52,1) 0%, rgba(66,31,52,1) 100%)",
-                                }}
-                                className="bg-yellow-500 text-white rounded-md px-3 py-2 text-sm font-medium"
-                              >
-                                Connect Wallet
-                              </Link>
-                            </div>
-                          ) : (
-                            <div
-                              onClick={() => {
-                                disconnect();
-                              }}
-                            >
-                              <Link href={""}>Connected</Link>
-                            </div>
-                          )}
+                              Connect Wallet
+                            </Link>
+                          </div>
+
+                          {/* <div
+                            onClick={() => {
+                              disconnect();
+                            }}
+                          >
+                            <Link href={""}>Connected</Link>
+                          </div> */}
                         </div>
 
                         <div>{/* <ConnectButton /> */}</div>
