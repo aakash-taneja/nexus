@@ -1,22 +1,15 @@
 "use client";
-import React, { ReactNode, useState } from "react";
-import Image from "next/image";
-import { Fragment } from "react";
-import { Disclosure, Menu, Transition, Dialog } from "@headlessui/react";
+import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import "chart.js/auto";
+import { ReactNode, useState, useEffect } from "react";
 // import "chartjs-adapter-date-fns";
 
-import { ConnectButton } from "@rainbow-me/rainbowkit";
 // import { useAccount } from "wagmi";
-import {
-  HomeIcon,
-  RocketLaunchIcon,
-  DocumentPlusIcon,
-  PresentationChartLineIcon,
-} from "@heroicons/react/24/outline";
+import { RocketLaunchIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 // import { useRouter } from "next/router";
+import { useChain, useWallet } from "@cosmos-kit/react";
 import Head from "next/head";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -51,6 +44,12 @@ export default function Layout({
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
+  const { status, mainWallet } = useWallet("keplr-extension");
+  const { connect, disconnect } = useChain("cosmoshub");
+
+  // useEffect(() => {
+  //   connect();
+  // }, []);
 
   return (
     <>
@@ -102,18 +101,33 @@ export default function Layout({
                               ))}
                             </div>
                           </div>
-                          <div>
-                            <Link
-                              href={""}
-                              style={{
-                                backgroundImage:
-                                  "linear-gradient(120deg, rgba(66,31,52,1) 0%, rgba(66,31,52,1) 100%)",
+
+                          {status == "Connected" ? (
+                            <div
+                              onClick={() => {
+                                connect();
                               }}
-                              className="bg-yellow-500 text-white rounded-md px-3 py-2 text-sm font-medium"
                             >
-                              Connect Wallet
-                            </Link>
-                          </div>
+                              <Link
+                                href={""}
+                                style={{
+                                  backgroundImage:
+                                    "linear-gradient(120deg, rgba(66,31,52,1) 0%, rgba(66,31,52,1) 100%)",
+                                }}
+                                className="bg-yellow-500 text-white rounded-md px-3 py-2 text-sm font-medium"
+                              >
+                                Connect Wallet
+                              </Link>
+                            </div>
+                          ) : (
+                            <div
+                              onClick={() => {
+                                disconnect();
+                              }}
+                            >
+                              <Link href={""}>Connected</Link>
+                            </div>
+                          )}
                         </div>
 
                         <div>{/* <ConnectButton /> */}</div>
