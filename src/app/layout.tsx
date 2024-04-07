@@ -2,6 +2,16 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
+import "@rainbow-me/rainbowkit/styles.css";
+
+import { RainbowKitProvider, getDefaultConfig } from "@rainbow-me/rainbowkit";
+import { WagmiProvider, cookieToInitialState } from "wagmi";
+import { mainnet, polygon, optimism, arbitrum, base } from "wagmi/chains";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+// import Web3ModalProvider from "@/context";
+import { headers } from "next/headers";
+// import { config } from "@/config";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -14,9 +24,27 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // const initialState = cookieToInitialState(config, headers().get("cookie"));
+  // const config = getDefaultConfig({
+  //   appName: "My RainbowKit App",
+  //   projectId: "YOUR_PROJECT_ID",
+  //   chains: [mainnet, polygon, optimism, arbitrum, base],
+  //   ssr: true, // If your dApp uses server side rendering (SSR)
+  // });
+  // const queryClient = new QueryClient();
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {/* <WagmiProvider config={config}>
+          <QueryClientProvider client={queryClient}>
+            <RainbowKitProvider> */}
+        {/* <Web3ModalProvider initialState={initialState}> */}
+        {children}
+        {/* </Web3ModalProvider> */}
+        {/* </RainbowKitProvider>
+          </QueryClientProvider>
+        </WagmiProvider> */}
+      </body>
     </html>
   );
 }
