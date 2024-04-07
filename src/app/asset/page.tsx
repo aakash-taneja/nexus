@@ -266,7 +266,7 @@ export default function NFTPage() {
               </div>
             </div>
             <div>
-              <div className="font-black text-xl">About This Collection</div>
+              <div className="font-black text-xl">About This Token</div>
               <div className="mt-5 flex items-center justify-between">
                 <div>
                   <div className="flex items-center gap-x-3">
@@ -286,7 +286,7 @@ export default function NFTPage() {
                       />
                     </picture>
                     <Link href="#" passHref={true}>
-                      FastApeMotoClub
+                      2BHK apartment
                     </Link>
                   </div>
                 </div>
@@ -304,10 +304,12 @@ export default function NFTPage() {
               </div>
               <div className="mt-8">
                 <p className="text-gray-600 text-sm">
-                  MARKETPLACE BUILDER DOCS PLACES EVENTS DAO BLOG Decentraland
-                  Make new friends, explore diverse events, and spark your
-                  creativity in a virtual world built and owned by its
-                  community. SDK 7 The l...
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam,
+                  incidunt, quisquam quia, sit odio beatae maiores porro
+                  doloremque enim explicabo atque dicta ea reiciendis vel sed
+                  vero voluptatibus iste ut alias. Quam deleniti incidunt
+                  aliquid expedita ex nesciunt debitis natus eaque architecto
+                  adipisci? Facilis incidunt aliquid, quae sapiente sed quaerat!
                 </p>
               </div>
 
