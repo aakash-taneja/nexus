@@ -316,6 +316,9 @@ export default function NFTPage() {
                   Creator:{" "}
                   {JSON.stringify("0xaF776906a6C7AD0df9260ece23a3981C4E8e7e6b")}
                 </p>
+                <p className="text-gray-600 text-sm">Interest: 10%</p>
+                <p className="text-gray-600 text-sm">Duration: 10 Days</p>
+                <p className="text-gray-600 text-sm">Amount: 50 OM</p>
               </div>
 
               {/* <div className="mt-8 bg-sky-50 sm:rounded-lg">
